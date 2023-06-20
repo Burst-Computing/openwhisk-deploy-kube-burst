@@ -162,7 +162,7 @@ k8s:
 # Images used to run auxillary tasks/jobs
 utility:
   imageName: "openwhisk/ow-utils"
-  imageTag: "ef725a6"
+  imageTag: "1.0.0"
   imagePullPolicy: "IfNotPresent"
 
 # Docker registry
@@ -259,8 +259,8 @@ nginx:
 
 # Controller configurations
 controller:
-  imageName: "openwhisk/controller"
-  imageTag: "ef725a6"
+  imageName: "controller"
+  imageTag: "latest"
   imagePullPolicy: "IfNotPresent"
   replicaCount: 1
   restartPolicy: "Always"
@@ -330,8 +330,8 @@ etcd:
 
 # Invoker configurations
 invoker:
-  imageName: "openwhisk/invoker"
-  imageTag: "ef725a6"
+  imageName: "invoker"
+  imageTag: "latest"
   imagePullPolicy: "IfNotPresent"
   restartPolicy: "Always"
   runtimeDeleteTimeout: "30 seconds"

@@ -1,0 +1,37 @@
+whisk:
+  ingress:
+    type: NodePort
+    apiHostName: 192.168.49.2
+    apiHostPort: 31001
+    useInternally: false
+controller:
+  imageName: "controller"
+  imageTag: "latest"
+invoker:
+  imageName: "invoker"
+  imageTag: "latest"
+#k8s:
+#  persistence:
+#    enabled: false
+nginx:
+  httpsNodePort: 31001
+zookeeper:
+  port: 2181
+#zookeeper:
+#  external: true
+#  connect_string: 192.168.49.1:2181
+#  host: 192.168.49.1
+#kafka:
+#  external: true
+#  connect_string: 192.168.49.1:9092
+invoker:
+  # options: "-Dwhisk.kubernetes.user-pod-node-affinity.enabled=false"
+  # must use KCF as kind uses containerd as its container runtime
+  containerFactory:
+    impl: "docker"
+
+docker:
+  registry:
+    name: "192.168.49.1:5000/"
+    username: manri-urv
+    password: "25Glgjedctmi25"
