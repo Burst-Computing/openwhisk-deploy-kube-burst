@@ -69,8 +69,8 @@ whisk:
     guest: "23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP"
   systemNameSpace: "/whisk.system"
   limits:
-    actionsInvokesPerminute: 60
-    actionsInvokesConcurrent: 30
+    actionsInvokesPerminute: 1000
+    actionsInvokesConcurrent: 1000
     triggersFiresPerminute: 60
     actionsSequenceMaxlength: 50
     actions:
@@ -79,8 +79,8 @@ whisk:
         max: "5m"
         std: "1m"
       memory:
-        min: "128m"
-        max: "512m"
+        min: "16m"
+        max: "4096m"
         std: "256m"
       concurrency:
         min: 1
@@ -94,7 +94,7 @@ whisk:
       payload:
         max: "1048576"
   loadbalancer:
-    blackboxFraction: "10%"
+    blackboxFraction: "100%"
     timeoutFactor: 2
   # Kafka configuration. For all sub-fields a value of "" means use the default from application.conf
   kafka:
@@ -130,7 +130,7 @@ whisk:
         retentionBytes: ""
         retentionMs: ""
   containerPool:
-    userMemory: "2048m"
+    userMemory: "8192m"
   runtimes: "runtimes.json"
   durationChecker:
     timeWindow: "1 d"
@@ -259,9 +259,9 @@ nginx:
 
 # Controller configurations
 controller:
-  imageName: "controller"
+  imageName: "manriurv/controller"
   imageTag: "latest"
-  imagePullPolicy: "IfNotPresent"
+  imagePullPolicy: "Always"
   replicaCount: 1
   restartPolicy: "Always"
   port: 8080
@@ -330,9 +330,9 @@ etcd:
 
 # Invoker configurations
 invoker:
-  imageName: "invoker"
+  imageName: "manriurv/invoker"
   imageTag: "latest"
-  imagePullPolicy: "IfNotPresent"
+  imagePullPolicy: "Always"
   restartPolicy: "Always"
   runtimeDeleteTimeout: "30 seconds"
   port: 8080
