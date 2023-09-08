@@ -100,7 +100,7 @@ Now you have a running cluster with a master node and one or more worker nodes.
 
 Before deploying OpenWhisk, you have to set up [Dynamic Volume
 Provision](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/), as the [technical
-requirements](k8s-technical-requirements.md) specify. For example, you can dynamically provision NFS persistent volumes, setting up an nfs server, a client provisioner and a storage class. Now you're ready to deploy openwhisk with [Helm](../README.md#deploy-with-helm).
+requirements](k8s-technical-requirements.md) specify. For example, you can dynamically provision NFS persistent volumes, setting up an nfs server, a client provisioner and a storage class. Now you're ready to deploy openwhisk with [Helm](../README_origin.md#deploy-with-helm).
 
 #### Weave Network Plugin Troubleshooting
 ensure that weave has launched by running `kubectl get pods -A` and looking for a pod named similarly to `weave-net-#####` - if the status is `Running` you're good. if you see `CrashLoopBackOff` perform the following steps:
