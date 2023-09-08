@@ -1,4 +1,4 @@
-# Deployment in k8s for Openwhisk for Burst Invocation
+# Deployment in k8s for BurstWhisk
 
 This repo contains little modifications from the original Openwhisk deployment in Kubernetes. The main modifications are:
 
