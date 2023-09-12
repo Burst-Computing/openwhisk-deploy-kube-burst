@@ -9,7 +9,7 @@ This repo contains little modifications from the original Openwhisk deployment i
 ### Deploy steps
 
 1. Configure and start your k8s cluster.
-2. Label the nodes. In this case, we will label the nodes with `openwhisk-role=invoker` and `openwhisk-role=controller`.
+2. Label the nodes. In this case, we will label the nodes with `openwhisk-role=invoker` and `openwhisk-role=core`.
 3. Clone this repo, access it and over base folder, execute:
     ```bash 
    helm install owdev ./helm/openwhisk -n openwhisk --create-namespace -f mycluster.yaml
