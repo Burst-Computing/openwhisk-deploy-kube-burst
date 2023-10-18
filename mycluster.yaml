@@ -4,9 +4,9 @@ whisk:
     apiHostName: 192.168.2.120
     apiHostPort: 31001
     useInternally: false
-    versions:
-      openwhisk:
-        gitTag: "72bb2a1"
+  versions:
+    openwhisk:
+      gitTag: "72bb2a1"
 controller:
   imageName: "manriurv/controller"
   imageTag: "latest"

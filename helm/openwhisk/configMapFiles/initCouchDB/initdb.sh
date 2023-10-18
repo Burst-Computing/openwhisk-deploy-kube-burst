@@ -35,7 +35,7 @@ if cmp -s /openwhisk/ansible/files/auth.guest /openwhisk/ansible/files/auth.whis
 fi
 
 # generate db_local.ini so the ansible jobs know how to access the database
-pushd /openwhisk/ansible
+pushd /openwhisk/ansible || exit 1
     ansible-playbook -i environments/local setup.yml
     ansible-playbook -i environments/local couchdb.yml --tags ini \
                      -e db_prefix=$DB_PREFIX \
@@ -44,8 +44,8 @@ pushd /openwhisk/ansible
                      -e db_username=$COUCHDB_USER \
                      -e db_password=$COUCHDB_PASSWORD \
                      -e db_port=$DB_PORT \
-                     -e openwhisk_home=/openwhisk
-popd
+                     -e openwhisk_home=/openwhisk || exit 1
+popd || exit 1
 
 # Wait for CouchDB to be available before starting to configure it
 until $( curl --output /dev/null --silent $DB_PROTOCOL://$DB_HOST:$DB_PORT/_utils ); do
