@@ -4,19 +4,21 @@ whisk:
     apiHostName: 192.168.2.120
     apiHostPort: 31001
     useInternally: false
+    versions:
+      openwhisk:
+        gitTag: "72bb2a1"
 controller:
   imageName: "manriurv/controller"
   imageTag: "latest"
 invoker:
   imageName: "manriurv/invoker"
   imageTag: "latest"
+  containerFactory:
+    impl: "docker"
 nginx:
   httpsNodePort: 31001
 zookeeper:
   port: 2181
-invoker:
-  containerFactory:
-    impl: "docker"
 k8s:
   persistence:
     enabled: false
