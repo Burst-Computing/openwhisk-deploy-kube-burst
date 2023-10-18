@@ -86,6 +86,9 @@ popd
 echo "Creating ow_kube_couchdb_initialized_marker database"
 #create _users database
 curl --silent -X PUT -u "$COUCHDB_USER:$COUCHDB_PASSWORD" $DB_PROTOCOL://$DB_HOST:$DB_PORT/_users || exit 1
+
+echo "_users database created"
+
 curl --silent -X PUT -u "$COUCHDB_USER:$COUCHDB_PASSWORD" $DB_PROTOCOL://$DB_HOST:$DB_PORT/ow_kube_couchdb_initialized_marker || exit 1
 
 echo "successfully initialized CouchDB for OpenWhisk"
