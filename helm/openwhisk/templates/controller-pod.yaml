@@ -168,6 +168,28 @@ spec:
           value: "{{ include "openwhisk.kafka_connect" . }}"
 {{ include "openwhisk.kafkaConfigEnvVars" . | indent 8 }}
 
+        # Burst Middleware properties
+        - name: "CONFIG_whisk_burstMiddleware_rabbitmq_uri"
+          value: {{ .Values.whisk.middleware.rabbitmq | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_redisList_uri"
+          value: {{ .Values.whisk.middleware.redisList | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_redisStream_uri"
+          value: {{ .Values.whisk.middleware.redisStream | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_messageRelay"
+          value: {{ .Values.whisk.middleware.messageRelay | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_s3_uri"
+          value: {{ .Values.whisk.middleware.s3.uri | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_s3_bucket"
+          value: {{ .Values.whisk.middleware.s3.bucket | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_s3_region"
+          value: {{ .Values.whisk.middleware.s3.region | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_s3_accessKeyId"
+          value: {{ .Values.whisk.middleware.s3.accessKeyId | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_s3_secretAccessKey"
+          value: {{ .Values.whisk.middleware.s3.secretAccessKey | quote }}
+        - name: "CONFIG_whisk_burstMiddleware_s3_sessionToken"
+          value: {{ .Values.whisk.middleware.s3.sessionToken | quote }}
+
         # etcd properties
 {{- if .Values.scheduler.enabled }}
 {{ include "openwhisk.etcdConfigEnvVars" . | indent 8 }}

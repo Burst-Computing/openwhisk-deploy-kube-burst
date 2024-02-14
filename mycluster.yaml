@@ -15,6 +15,10 @@ invoker:
   imageTag: "latest"
   containerFactory:
     impl: "docker"
+  middleware:
+    rabbitmq: "amqp://guest:guest@192.168.2.36:5672"
+    redisList: "redis://192.168.2.36:6379"
+    redisStream: "redis://192.168.2.36:6379"
 nginx:
   httpsNodePort: 31001
 zookeeper:
