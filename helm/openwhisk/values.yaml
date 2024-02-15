@@ -1,7 +1,7 @@
 #
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
-# this work for additional information regarding copyright ownership.
+# this work for additional Winformation regarding copyright ownership.
 # The ASF licenses this file to You under the Apache License, Version 2.0
 # (the "License"); you may not use this file except in compliance with
 # the License.  You may obtain a copy of the License at
@@ -42,6 +42,18 @@
 
 # Overall configuration of OpenWhisk deployment
 whisk:
+  middleware:
+    rabbitmq: "amqp://guest:guest@192.168.2.36:5672"
+    redisList: "redis://192.168.2.36:6379"
+    redisStream: "redis://192.168.2.36:6379"
+    messageRelay: "foo"
+    s3:
+      uri: "foo"
+      region: "foo"
+      endpoint: "foo"
+      accessKeyId: "foo"
+      secretAccessKey: "foo"
+      sessionToken: "foo"
   # Ingress defines how to access OpenWhisk from outside the Kubernetes cluster.
   # Only a subset of the values are actually used on any specific type of cluster.
   # See the "Configuring OpenWhisk section" of the docs/k8s-*.md that matches
@@ -80,7 +92,7 @@ whisk:
         std: "1m"
       memory:
         min: "16m"
-        max: "4096m"
+        max: "128000m"
         std: "256m"
       concurrency:
         min: 1
@@ -130,7 +142,7 @@ whisk:
         retentionBytes: ""
         retentionMs: ""
   containerPool:
-    userMemory: "8192m"
+    userMemory: "128000m"
   runtimes: "runtimes.json"
   durationChecker:
     timeWindow: "1 d"
@@ -266,9 +278,9 @@ controller:
   restartPolicy: "Always"
   port: 8080
   options: ""
-  jvmHeapMB: "1024"
+  jvmHeapMB: "2048"
   jvmOptions: ""
-  loglevel: "INFO"
+  loglevel: "DEBUG"
 
 # Scheduler configurations
 scheduler:
@@ -337,9 +349,9 @@ invoker:
   runtimeDeleteTimeout: "30 seconds"
   port: 8080
   options: ""
-  jvmHeapMB: "512"
+  jvmHeapMB: "2048"
   jvmOptions: ""
-  loglevel: "INFO"
+  loglevel: "DEBUG"
   containerFactory:
     useRunc: false
     impl: "kubernetes"
