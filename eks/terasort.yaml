@@ -2,7 +2,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: pagerank-cluster
+  name: terasort-cluster
   region: us-east-1 # north virginia
   version: "1.23"
 
@@ -28,7 +28,7 @@ nodeGroups:
     ssh:
       allow: true
     instancesDistribution:
-      instanceTypes: ["c7i.16xlarge"]
+      instanceTypes: ["m7i.48xlarge"]
       onDemandBaseCapacity: 0
       onDemandPercentageAboveBaseCapacity: 0
     overrideBootstrapCommand: |
