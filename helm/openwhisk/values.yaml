@@ -88,11 +88,11 @@ whisk:
     actions:
       time:
         min: "100ms"
-        max: "5m"
+        max: "10m"
         std: "1m"
       memory:
         min: "16m"
-        max: "128000m"
+        max: "120000m"
         std: "256m"
       concurrency:
         min: 1
@@ -142,7 +142,7 @@ whisk:
         retentionBytes: ""
         retentionMs: ""
   containerPool:
-    userMemory: "128000m"
+    userMemory: "30000m"
   runtimes: "runtimes.json"
   durationChecker:
     timeWindow: "1 d"
@@ -278,9 +278,9 @@ controller:
   restartPolicy: "Always"
   port: 8080
   options: ""
-  jvmHeapMB: "2048"
+  jvmHeapMB: "4096"
   jvmOptions: ""
-  loglevel: "DEBUG"
+  loglevel: "INFO"
 
 # Scheduler configurations
 scheduler:
@@ -349,9 +349,9 @@ invoker:
   runtimeDeleteTimeout: "30 seconds"
   port: 8080
   options: ""
-  jvmHeapMB: "2048"
+  jvmHeapMB: "65536"
   jvmOptions: ""
-  loglevel: "DEBUG"
+  loglevel: "INFO"
   containerFactory:
     useRunc: false
     impl: "kubernetes"
