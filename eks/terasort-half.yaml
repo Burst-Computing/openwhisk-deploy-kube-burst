@@ -4,7 +4,6 @@ kind: ClusterConfig
 metadata:
   name: terasort-cluster
   region: us-east-1 # north virginia
-  version: "1.23"
 
 nodeGroups:
   - name: core
